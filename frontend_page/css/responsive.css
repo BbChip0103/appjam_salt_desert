@@ -1,0 +1,43 @@
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 768px) {
+ .banner-text {
+ padding-top: 30%;
+}
+ .banner-text h1 {
+ font-size: 65px;
+}
+ .banner-text p {
+ font-size: 18px;
+}
+ .footer .footer-col {
+ margin-bottom: 50px;
+}
+}
+@media screen and (max-width: 640px) {
+ .banner-text {
+ padding-top: 35%;
+}
+}
+@media screen and (max-width: 480px) {
+ .banner-text {
+ padding-top: 45%;
+}
+ .banner-text h1 {
+ font-size: 20px;
+}
+ .item {
+ width:70%;
+}
+}
+@media screen and (max-width: 320px) {
+ .banner-text {
+ padding-top: 55%;
+}
+.banner-text h1 {
+font-size: 12px;
+}
+ .item {
+ width:70%;
+}
+}

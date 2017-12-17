@@ -1,0 +1,4 @@
+config.py
+*.pem
+__pycache__/
+raspberry_main/config.py

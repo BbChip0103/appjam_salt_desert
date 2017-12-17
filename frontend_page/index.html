@@ -1,0 +1,172 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uyuni</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <script type="text/javascript">
+   function load(){
+    var URL = "http://ec2-13-124-187-94.ap-northeast-2.compute.amazonaws.com:5000/";
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", URL);
+    xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      data = JSON.parse(xhr.responseText);
+
+      var water_str = "";
+      var state_str = "";
+
+      document.getElementById("weather").innerHTML = "날씨:" + data.weather_state;
+
+      if(data.water_level > 100 ){
+        water_str = "좋음";
+      } else {
+        water_str = "나쁨";
+      }
+      document.getElementById("water_level").innerHTML = "수위:" + water_str;
+
+      document.getElementById("wind_speed").innerHTML = "풍속:" + data.wind_speed + "";
+
+      if((data.weather_id=="800"||data.weather_id=="801") &&
+          water_str=="좋음"){
+        state_str = "좋음";
+      } else {
+        state_str = "나쁨";
+      }
+      document.getElementById("state").innerHTML = "종합:" + state_str;
+      }
+    }
+    xhr.send();
+
+   }
+  </script>
+
+</head>
+
+<body onload="load();">
+<!--header section -->
+<section class="banner" role="banner">
+  <div class="banner-area">
+
+    <!-- overlay -->
+    <div class="banner-area-gradient"></div>
+    <!-- overlay -->
+    <div class="inner-bg">
+      <div class="container">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="banner-text text-center"> <a class="logo" href="#">Uyuni</a>
+            <h1 id="weather">날씨:</h1>
+            <h1 id="wind_speed">풍속:</h1>
+            <h1 id="water_level">수위:</h1>
+            <h1 id="state">종합:</h1>
+            <br />
+            <br />
+            <br />
+            <br />
+            <!--Countdown -->
+
+            <!--Countdown -->
+            <a href="#subscribes" class="btn">Notify me</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--header section -->
+<!--intro section -->
+<section id="intro" class="section intro">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-6">
+        <div class="intro-content">
+          <h1>Uyuni 사막의 최적의 자연환경과 비상 시 구조시스템으로 여러분의 건강을 지켜줍니다.</h1>
+        </div>
+
+        <!-- intro -->
+      </div>
+      <div class="col-md-7  col-md-offset-1 col-sm-6">
+        <div class="intro-content">
+          <h2>Welcome to Uyuni</h2>
+          <p>엉어아아아ㅏㅇ우리가 앱잼 일등할거야아아아아아아으아앙 졸려어어어</p>
+        </div>
+
+        <!-- intro -->
+      </div>
+    </div>
+  </div>
+</section>
+<!--intro section -->
+<!--subscribe section -->
+<section id="subscribes" class="subscribe">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-5 subscribe-title">
+        <h2>Subscribe now.</h2>
+      </div>
+
+      <!-- subscribe form -->
+      <div class="col-sm-12 col-md-7 subscribe-form">
+
+        <form method="post" action="php/subscribe.php" name="subscribeform" id="subscribeform">
+          <input type="text" name="email" placeholder="Enter your email address to get notified" id="subemail" />
+          <input type="submit" name="send" value="Notify me" id="subsubmit" class="btn2" />
+        </form>
+
+        <!-- subscribe message -->
+        <div id="mesaj"></div>
+        <!-- subscribe message -->
+      </div>
+      <!-- subscribe form -->
+    </div>
+  </div>
+</section>
+<!--subscribe section -->
+
+<!-- Footer section -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer-col col-md-5">
+        <p>Copyright © 2017 Uyuni Inc. All Rights Reserved.</p>
+        <p> Made with <i class="fa fa-heart pulse"></i> by Uyuni</a></p>
+      </div>
+      <div class="footer-col col-md-7">
+        <ul class="footer-share">
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer top -->
+
+</footer>
+<!-- Footer section -->
+
+<!-- JS files-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.backstretch.min.js"></script>
+<script src="js/jquery.countdown.js"></script>
+<script type="text/javascript" src="js/jquery.subscribe.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
